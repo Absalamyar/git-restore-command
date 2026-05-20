@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش دستور git restore</title>
+    <style>
+        /* CSS Styles */
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --code-bg: #2d3748;
+            --code-text: #f7fafc;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid var(--accent-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #f6e05e;
+            font-weight: bold;
+        }
+
+        .comment {
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>راهنمای دستور <span style="direction: ltr; display: inline-block;">git restore</span></h1>
+            <p class="description">آموزش کاربردی لغو تغییرات در پروژه با مثال‌های HTML</p>
+        </header>
+
+        <!-- بخش اول -->
+        <div class="card">
+            <h2>۱. لغو تغییرات در یک فایل (قبل از مرحله Add)</h2>
+            <p>اگر کدی را اشتباهاً در فایل نوشتید و می‌خواهید فایل به آخرین وضعیت کامیت شده برگردد:</p>
+            <pre><code><span class="comment"># بازگرداندن فایل به آخرین کامیت</span>
+git restore index.html</code></pre>
+            <p><strong>مثال:</strong> فرض کنید خط زیر را اشتباهاً اضافه کرده بودید، با دستور بالا این خط حذف می‌شود:</p>
+            <pre><code><span class="highlight">&lt;h1&gt;این یک متن اشتباه است!&lt;/h1&gt;</span></code></pre>
+        </div>
+
+        <!-- بخش دوم -->
+        <div class="card">
+            <h2>۲. خارج کردن فایل از صف کامیت (بعد از مرحله Add)</h2>
+            <p>اگر دستور <code style="direction: ltr; display: inline-block;">git add</code> را اجرا کرده‌اید اما پشیمان شده‌اید و نمی‌خواهید این فایل کامیت شود:</p>
+            <pre><code><span class="comment"># خارج کردن فایل از حالت Staged (کدهای شما حذف نمی‌شوند)</span>
+git restore --staged index.html</code></pre>
+            <p><strong>نتیجه:</strong> فایل شما از حالت آماده‌باش برای کامیت خارج می‌شود تا بتوانید تغییرات بیشتری روی آن اعمال کنید.</p>
+        </div>
+
+        <!-- بخش سوم -->
+        <div class="card">
+            <h2>۳. لغو تمام تغییرات پروژه به صورت یکجا</h2>
+            <p>اگر تغییرات زیادی در چندین فایل HTML و CSS انجام داده‌اید و می‌خواهید همه چیز به حالت اول برگردد:</p>
+            <pre><code><span class="comment"># هشدار: این دستور تمام کدهای کامیت نشده را برای همیشه پاک میکند!</span>
+git restore .</code></pre>
+        </div>
+    </div>
+
+</body>
+</html>
